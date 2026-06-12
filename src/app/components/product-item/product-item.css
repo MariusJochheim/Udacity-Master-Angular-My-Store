@@ -1,0 +1,26 @@
+.product-image {
+  border: 1px solid #33b5e5;
+  list-style-type: none;
+  margin: 6px;
+  padding: 20px;
+  width: 290px;
+}
+
+.product-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 64px;
+}
+
+.select-input {
+  margin-bottom: 8px;
+  width: 108px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}

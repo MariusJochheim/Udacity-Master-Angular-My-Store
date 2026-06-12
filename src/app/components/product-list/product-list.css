@@ -1,3 +1,7 @@
+.product-page {
+  text-align: center;
+}
+
 .product-index {
   display: flex;
   flex-wrap: wrap;
@@ -9,4 +13,9 @@
 .product-container {
   display: flex;
   justify-content: center;
+}
+
+.cart-message {
+  color: #167a61;
+  font-weight: 700;
 }

@@ -1,59 +1,51 @@
-# AngularStoreApp
+# MyStore Angular Storefront
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.14.
+MyStore is a single-page ecommerce storefront built with Angular for the Udacity Frontend Nanodegree project. It loads product data from the provided JSON file, lets users add products to a shared cart, validates checkout input, and shows an order confirmation page after checkout.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Product list loaded with Angular `HttpClient` from `src/assets/data.json`
+- Product detail page with photo, name, price, and description
+- Shared shopping cart service for product list, product detail, and cart pages
+- Editable cart quantities, remove buttons, and total cost
+- Template-driven checkout form with validation
+- Confirmation page after successful checkout
+- Angular routing with `routerLink` and `<router-outlet>`
+
+## Install and Run
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open `http://localhost:4200/` in a browser.
 
-## Code scaffolding
+## Build and Test
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Create a production build:
 
 ```bash
-ng generate --help
+npm run build
 ```
 
-## Building
-
-To build the project run:
+Run unit tests:
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Project Structure
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `src/app/components`: product list, product item, product detail, cart, and confirmation components
+- `src/app/layout`: shared header component
+- `src/app/models`: product, cart, checkout, and order TypeScript models
+- `src/app/services`: product loading, cart state, and order confirmation services
+- `src/assets/data.json`: product data used by the store

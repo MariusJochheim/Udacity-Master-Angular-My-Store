@@ -1,0 +1,17 @@
+<section class="product-page" aria-labelledby="products-heading">
+  <h1 id="products-heading">MyStore Products</h1>
+
+  <p class="cart-message" *ngIf="cartMessage" role="status">
+    {{ cartMessage }}
+  </p>
+
+  <div class="product-container">
+    <div class="product-index">
+      <app-product-item
+        *ngFor="let product of products"
+        [product]="product"
+        (addProduct)="addToCart($event)"
+      ></app-product-item>
+    </div>
+  </div>
+</section>

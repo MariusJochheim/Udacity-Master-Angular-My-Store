@@ -1,0 +1,18 @@
+<section class="confirmation-container">
+  <div class="confirmation-items" *ngIf="confirmation() as order; else noOrder">
+    <h1 class="confirmation-header">Success!</h1>
+    <p class="confirmation-item">Thank you, {{ order.fullName }}.</p>
+    <p class="confirmation-item">
+      Your order total is <strong>{{ order.total | currency }}</strong>.
+    </p>
+    <a routerLink="/">Back to product list</a>
+  </div>
+
+  <ng-template #noOrder>
+    <div class="confirmation-items">
+      <h1>No order found</h1>
+      <p class="confirmation-item">Complete checkout to view an order confirmation.</p>
+      <a routerLink="/">Back to product list</a>
+    </div>
+  </ng-template>
+</section>

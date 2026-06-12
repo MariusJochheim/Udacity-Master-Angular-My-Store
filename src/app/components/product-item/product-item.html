@@ -1,0 +1,24 @@
+<div class="product-container">
+  <a [routerLink]="['/products', product.id]" aria-label="View product details">
+    <img class="product-image" [src]="product.url" [alt]="product.name" />
+  </a>
+
+  <a [routerLink]="['/products', product.id]">
+    <h2>{{ product.name }}</h2>
+  </a>
+  <p>{{ product.price | currency }}</p>
+
+  <select
+    class="select-input"
+    name="quantity-{{ product.id }}"
+    aria-label="Quantity for {{ product.name }}"
+    [(ngModel)]="quantity"
+    (ngModelChange)="onQuantityChange($event)"
+  >
+    <option *ngFor="let option of quantityOptions" [ngValue]="option">
+      {{ option }}
+    </option>
+  </select>
+
+  <button type="button" (click)="addToCart()">Add to cart</button>
+</div>

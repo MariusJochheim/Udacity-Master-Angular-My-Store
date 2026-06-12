@@ -1,0 +1,40 @@
+<section class="detail-page">
+  <div class="detail-container" *ngIf="product; else productMissing">
+    <img [src]="product.url" [alt]="product.name" />
+
+    <div class="detail-item">
+      <h1>{{ product.name }}</h1>
+      <p>{{ product.price | currency }}</p>
+      <p>{{ product.description }}</p>
+
+      <select
+        class="select-input"
+        name="detail-quantity"
+        aria-label="Quantity for {{ product.name }}"
+        [(ngModel)]="quantity"
+        (ngModelChange)="onQuantityChange($event)"
+      >
+        <option *ngFor="let option of quantityOptions" [ngValue]="option">
+          {{ option }}
+        </option>
+      </select>
+
+      <button type="button" (click)="addToCart()">Add to cart</button>
+
+      <p class="cart-message" *ngIf="cartMessage" role="status">
+        {{ cartMessage }}
+      </p>
+
+      <p class="back-link">
+        <a routerLink="/">Back to product list</a>
+      </p>
+    </div>
+  </div>
+
+  <ng-template #productMissing>
+    <div class="missing-product">
+      <h1>Product not found</h1>
+      <a routerLink="/">Return to product list</a>
+    </div>
+  </ng-template>
+</section>

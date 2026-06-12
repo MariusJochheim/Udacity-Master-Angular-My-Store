@@ -4,22 +4,33 @@ img {
 }
 
 .select-input {
-  width: 108px; 
   margin-bottom: 8px;
+  width: 108px;
 }
 
 .detail-container {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-top: 64px;
 }
 
 .detail-item {
   margin-left: 128px;
   margin-right: 128px;
+  max-width: 360px;
 }
 
 .back-link {
   margin-top: 8px;
+}
+
+.cart-message {
+  color: #167a61;
+  font-weight: 700;
+}
+
+.missing-product {
+  margin-top: 64px;
+  text-align: center;
 }
