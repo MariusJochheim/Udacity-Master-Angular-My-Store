@@ -18,7 +18,7 @@ export class ProductList implements OnInit {
 
   constructor(
     private readonly productService: ProductService,
-    private readonly cartService: CartService
+    private readonly cartService: CartService,
   ) {}
 
   ngOnInit(): void {

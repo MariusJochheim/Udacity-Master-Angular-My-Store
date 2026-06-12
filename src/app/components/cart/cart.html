@@ -50,7 +50,10 @@
           minlength="3"
           [(ngModel)]="checkoutInfo.fullName"
         />
-        <p class="validation-message" *ngIf="checkoutForm.submitted && checkoutForm.controls['fullName']?.invalid">
+        <p
+          class="validation-message"
+          *ngIf="checkoutForm.submitted && checkoutForm.controls['fullName']?.invalid"
+        >
           Enter a name with at least 3 characters.
         </p>
       </div>
@@ -65,7 +68,10 @@
           minlength="6"
           [(ngModel)]="checkoutInfo.address"
         />
-        <p class="validation-message" *ngIf="checkoutForm.submitted && checkoutForm.controls['address']?.invalid">
+        <p
+          class="validation-message"
+          *ngIf="checkoutForm.submitted && checkoutForm.controls['address']?.invalid"
+        >
           Enter a valid shipping address.
         </p>
       </div>
@@ -81,7 +87,10 @@
           placeholder="1111 2222 3333 4444"
           [(ngModel)]="checkoutInfo.creditCard"
         />
-        <p class="validation-message" *ngIf="checkoutForm.submitted && checkoutForm.controls['creditCard']?.invalid">
+        <p
+          class="validation-message"
+          *ngIf="checkoutForm.submitted && checkoutForm.controls['creditCard']?.invalid"
+        >
           Enter 13 to 19 digits.
         </p>
       </div>

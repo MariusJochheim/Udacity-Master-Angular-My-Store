@@ -22,7 +22,7 @@ export class ProductItemDetail implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly productService: ProductService,
-    private readonly cartService: CartService
+    private readonly cartService: CartService,
   ) {}
 
   ngOnInit(): void {

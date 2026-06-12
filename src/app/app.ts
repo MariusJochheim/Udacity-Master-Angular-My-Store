@@ -7,7 +7,7 @@ import { Header } from './layout/header/header';
   selector: 'app-root',
   imports: [Header, RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('MyStore');

@@ -10,11 +10,9 @@ export class CartService {
 
   readonly cartItems = this.items.asReadonly();
   readonly total = computed(() =>
-    this.items().reduce((sum, item) => sum + item.product.price * item.quantity, 0)
+    this.items().reduce((sum, item) => sum + item.product.price * item.quantity, 0),
   );
-  readonly itemCount = computed(() =>
-    this.items().reduce((sum, item) => sum + item.quantity, 0)
-  );
+  readonly itemCount = computed(() => this.items().reduce((sum, item) => sum + item.quantity, 0));
 
   addToCart(product: ProductModel, quantity: number): void {
     const safeQuantity = this.normalizeQuantity(quantity);
@@ -26,7 +24,7 @@ export class CartService {
         return items.map((item) =>
           item.product.id === product.id
             ? { ...item, quantity: item.quantity + safeQuantity }
-            : item
+            : item,
         );
       }
 
@@ -44,8 +42,8 @@ export class CartService {
 
     this.items.update((items) =>
       items.map((item) =>
-        item.product.id === productId ? { ...item, quantity: Math.floor(safeQuantity) } : item
-      )
+        item.product.id === productId ? { ...item, quantity: Math.floor(safeQuantity) } : item,
+      ),
     );
   }
 
