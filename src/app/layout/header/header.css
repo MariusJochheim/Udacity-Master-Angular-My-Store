@@ -8,7 +8,8 @@
   padding: 12px;
 }
 
-.header a {
+.header a,
+.brand {
   color: #fff;
   font-weight: 700;
   text-decoration: none;

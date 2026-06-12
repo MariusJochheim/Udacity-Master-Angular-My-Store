@@ -6,14 +6,14 @@
       Your order total is <strong>{{ order.total | currency }}</strong
       >.
     </p>
-    <a routerLink="/">Back to product list</a>
+    <a routerLink="/products">Back to product list</a>
   </div>
 
   <ng-template #noOrder>
     <div class="confirmation-items">
       <h1>No order found</h1>
       <p class="confirmation-item">Complete checkout to view an order confirmation.</p>
-      <a routerLink="/">Back to product list</a>
+      <a routerLink="/products">Back to product list</a>
     </div>
   </ng-template>
 </section>

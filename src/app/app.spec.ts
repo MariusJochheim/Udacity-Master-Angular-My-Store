@@ -26,7 +26,11 @@ describe('App', () => {
     expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 
-  it('should configure product, cart, and confirmation routes', () => {
+  it('should configure products as the starting page with cart and confirmation routes', () => {
+    expect(routes.some((route) => route.path === '' && route.redirectTo === 'products')).toBe(
+      true,
+    );
+    expect(routes.some((route) => route.path === 'products')).toBe(true);
     expect(routes.some((route) => route.path === 'products/:id')).toBe(true);
     expect(routes.some((route) => route.path === 'cart')).toBe(true);
     expect(routes.some((route) => route.path === 'confirmation')).toBe(true);
