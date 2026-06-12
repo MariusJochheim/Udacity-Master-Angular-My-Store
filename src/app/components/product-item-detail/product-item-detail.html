@@ -1,5 +1,5 @@
 <section class="detail-page">
-  <div class="detail-container" *ngIf="product; else productMissing">
+  <div class="detail-container" *ngIf="product() as product; else productMissing">
     <img [src]="product.url" [alt]="product.name" />
 
     <div class="detail-item">

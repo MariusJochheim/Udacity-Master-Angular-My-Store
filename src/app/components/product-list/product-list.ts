@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 
 import { Product as ProductModel } from '../../models/product';
 import { CartService } from '../../services/cart';
@@ -13,7 +13,7 @@ import { ProductItem } from '../product-item/product-item';
   styleUrl: './product-list.css',
 })
 export class ProductList implements OnInit {
-  products: ProductModel[] = [];
+  readonly products = signal<ProductModel[]>([]);
   cartMessage = '';
 
   constructor(
@@ -23,7 +23,7 @@ export class ProductList implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => {
-      this.products = products;
+      this.products.set(products);
     });
   }
 

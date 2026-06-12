@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { ProductService } from '../../services/product';
 })
 export class ProductItemDetail implements OnInit {
   readonly quantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  product?: ProductModel;
+  readonly product = signal<ProductModel | undefined>(undefined);
   quantity = 1;
   cartMessage = '';
 
@@ -29,7 +29,7 @@ export class ProductItemDetail implements OnInit {
     const productId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.productService.getProduct(productId).subscribe((product) => {
-      this.product = product;
+      this.product.set(product);
     });
   }
 
@@ -38,11 +38,13 @@ export class ProductItemDetail implements OnInit {
   }
 
   addToCart(): void {
-    if (!this.product) {
+    const product = this.product();
+
+    if (!product) {
       return;
     }
 
-    this.cartService.addToCart(this.product, this.quantity);
-    this.cartMessage = `${this.quantity} ${this.product.name} added to cart.`;
+    this.cartService.addToCart(product, this.quantity);
+    this.cartMessage = `${this.quantity} ${product.name} added to cart.`;
   }
 }
